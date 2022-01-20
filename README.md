@@ -12,7 +12,7 @@ EXE. More info in the setup section
   https://github.com/StufMuff/EchoEvaluation
   Download branch as a zip folder
     Unzip to any desired loaction
-    Run echoObserver_GUI.exe
+    Run schrodingersObserver_GUI.exe
       ***Note: running unathorized EXE will be flaged and have to be bypassed to run (this should happen the first time only)
 # discord:
   Schordinger's Disc
@@ -113,7 +113,7 @@ these are some things to keep in mind.
   will be on.
 # # # # # SETUP # # # # #
 #EXE setup
-  This is the easiest. Just download the zip, unzip to any location, find the echoObserver_GUI.exe and run it. Done. I would recommend saving a short cut to the exe for 
+  This is the easiest. Just download the zip, unzip to any location, find the schrodingersObserver_GUI.exe and run it. Done. I would recommend saving a short cut to the exe for 
 easier access and make sure you change the locations to where you want to save the information. The default will be in the same directory as the EXE. For example, change 
 "Results/" to "C:\Users\XXXXXX\Documents\Eval_Results\". And do the same for the replays. 
 
@@ -248,6 +248,6 @@ but is easily simulated by using excel. (May push out to -2 to 2 if calculations
         Gain possession as a goalie
     
 # # # # # Trouble Shooting Tips # # # # #
-  There is a "crashLog_gamePlay.log" file that will record most errors. This is a good place to start. Also, inside the echoObserver folder you can find a 
-echoObserver_GUI_troubleshooting.exe. This exe will have the console window open. This console will be cluttered with info from the various scripts that are running,
+  There is a "crashLog_gamePlay.log" file that will record most errors. This is a good place to start. Also, inside the schrodingersObserver folder you can find a 
+schrodingersObserver_GUI_troubleshooting.exe. This exe will have the console window open. This console will be cluttered with info from the various scripts that are running,
 but it should also show any errors that the GUI might not have caught. Any bugs or fixes can be requested in the discord server. Your help and patience is greatly appreciated.
