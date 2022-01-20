@@ -1,13 +1,22 @@
-### Evaluation GUI -> Echo Observer ###
+### Evaluation GUI -> Schrödinger's Observer ###
 -Created by Jeremy Stufflebeem (StufMuff)
 
+# # # # # Release # # # # #
 # Release Notes:
   This release is to highlight the basic idea of what the script is capable of. Not by any means has the information been "perfected"
 The evaluation given is to give players an idea of what areas of the game are weaker. For example, to have one game with "man_coverage"
 may not mean much. But to have 10 games with "man_coverage" being low could indicate that is a players weak point
   The GUI is a simple Tkinter GUI to make using the scripts easier for everyone. A person just has to download the zip file and run the 
 EXE. More info in the setup section
-
+# Link:
+  https://github.com/StufMuff/EchoEvaluation
+  Download branch as a zip folder
+    Unzip to any desired loaction
+    Run echoObserver_GUI.exe
+      ***Note: running unathorized EXE will be flaged and have to be bypassed to run (this should happen the first time only)
+# discord:
+  Schordinger's Disc
+  https://discord.gg/2uJyQD3w7X
 # # # # # GUI Notes # # # # #
   You have 6 tabs of information. Each tab show another characteristic that is provided. The main focus is to refine the evaluation 
 portion. However, the other portions have been added for the users pleasure. Evaluation data, speed data, and stack data is saved csv
@@ -104,9 +113,10 @@ these are some things to keep in mind.
   will be on.
 # # # # # SETUP # # # # #
 #EXE setup
-  This is the easiest. Just download the zip, find the gamePlay_GUI.exe and run it. Done. I would recommend saving a short cut to the exe for easier access and make
-sure you change the locations to where you want to save the information. The default will be in the same directory as the EXE. For example, change "Results/" to 
-"C:\Users\XXXXXX\Documents\Eval_Results\". And do the same for the replays. 
+  This is the easiest. Just download the zip, unzip to any location, find the echoObserver_GUI.exe and run it. Done. I would recommend saving a short cut to the exe for 
+easier access and make sure you change the locations to where you want to save the information. The default will be in the same directory as the EXE. For example, change 
+"Results/" to "C:\Users\XXXXXX\Documents\Eval_Results\". And do the same for the replays. 
+
 # # # # # Evaluation Break Down # # # # #
   Evaluation:
   This script is the magic to evaluating a players preformance. I will attempt to keep this file up to date on how each area is graded. The bases of the grading style
@@ -237,3 +247,7 @@ but is easily simulated by using excel. (May push out to -2 to 2 if calculations
         API awarded a save
         Gain possession as a goalie
     
+# # # # # Trouble Shooting Tips # # # # #
+  There is a "crashLog_gamePlay.log" file that will record most errors. This is a good place to start. Also, inside the echoObserver folder you can find a 
+echoObserver_GUI_troubleshooting.exe. This exe will have the console window open. This console will be cluttered with info from the various scripts that are running,
+but it should also show any errors that the GUI might not have caught. Any bugs or fixes can be requested in the discord server. Your help and patience is greatly appreciated.

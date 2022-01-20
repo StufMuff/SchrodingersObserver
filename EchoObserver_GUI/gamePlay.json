@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "directory": {
+      "file": "C:\\Users\\Treehouse\\Documents\\PyCharmProjects\\EchoVr\\GamePlayScript\\Testing_Results\\",
+      "replay": "C:\\Users\\Treehouse\\Documents\\PyCharmProjects\\EchoVr\\GamePlayScript\\Testing_Replays\\"
+    },
+    "file": {
+      "evaluation_log": "evaluation.csv",
+      "evaluation_result": "evaluation_result.csv",
+      "stack_log": "stack_log.csv",
+      "speed_result": "speed_result.csv",
+      "error_log": "crashLog_gamePlay.log",
+      "replay": "replay"
+    },
+    "ip_address": "127.0.0.1",
+    "save_replay": true,
+    "threading": true,
+    "fps": 30,
+    "script_delay": 1,
+    "gui_refresh": 1000,
+    "retry_delay": 10000
+  }
+}
