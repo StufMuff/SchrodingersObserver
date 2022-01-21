@@ -1,8 +1,8 @@
 {
   "settings": {
     "directory": {
-      "file": "C:\\Users\\Treehouse\\Documents\\PyCharmProjects\\EchoVr\\GamePlayScript\\Testing_Results\\",
-      "replay": "C:\\Users\\Treehouse\\Documents\\PyCharmProjects\\EchoVr\\GamePlayScript\\Testing_Replays\\"
+      "file": "Results/",
+      "replay": "Replays/"
     },
     "file": {
       "evaluation_log": "evaluation.csv",
@@ -13,7 +13,7 @@
       "replay": "replay"
     },
     "ip_address": "127.0.0.1",
-    "save_replay": true,
+    "save_replay": false,
     "threading": true,
     "fps": 30,
     "script_delay": 1,
