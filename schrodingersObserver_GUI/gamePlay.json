@@ -10,14 +10,18 @@
       "stack_log": "stack_log.csv",
       "speed_result": "speed_result.csv",
       "error_log": "crashLog_gamePlay.log",
-      "replay": "replay"
+      "replay": "replay",
+      "gui_file": "ShrodingersObserver_GUI.gui"
     },
     "ip_address": "127.0.0.1",
     "save_replay": false,
     "threading": true,
+    "write_bool": false,
+    "auto_restart": false,
     "fps": 30,
     "script_delay": 1,
     "gui_refresh": 1000,
-    "retry_delay": 10000
+    "gui_write": false,
+    "retry_delay": 1000
   }
 }

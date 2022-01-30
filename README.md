@@ -9,7 +9,7 @@ may not mean much. But to have 10 games with "man_coverage" being low could indi
   The GUI is a simple Tkinter GUI to make using the scripts easier for everyone. A person just has to download the zip file and run the 
 EXE. More info in the setup section
 # Link:
-  https://github.com/StufMuff/EchoEvaluation
+  https://github.com/StufMuff/SchrodingersObserver
   Download branch as a zip folder
     Unzip to any desired loaction
     Run schrodingersObserver_GUI.exe
@@ -29,13 +29,20 @@ displayed in the Error tab. One main feature offered is the ability to evaluate 
 saving has the highest priority. If there is an error, you will see all 3 LED's on. This means evaluation has stopped, but the replay is
 still recording. The file can be re-evaluated from the replay data.
   The "Start" button is how to start an active read. This will attempt to connect to the API (if unable, it will say so in the Error tab).
-The Stop button can be used in replay reads and live reads. This will stop the current read and readplay saving. Also, the evaluation will 
+The Stop button can be used in replay reads and live reads. This will stop the current read and replay saving. Also, the evaluation will 
 also save files if the API is disconnected, ie leave the lobby without doing anything. Pressing stop can cause a slight pause in functionallity 
-if multi-threading is turned on (more info in settings section). At this time, I have decided to not have the GUI
-autoconnect anytime the API is open. You MUST press start to start the evaluation. To start a replay read, just select "Load Replay" from the
-menu.
+if multi-threading is turned on (more info in settings section). You can enable an auto connect feature in the settins. This can be seen in the
+screen because the running LED will be yellow.
+  More information on how to load specific files and what each file is for is in the settings section.
 # Menu
-  The menu selection is very simple. You have "Open Settings," "Load Replay," and exit.
+  The menu selection has six options: Save GUI, Save as GUI, load GUI, load replay, open settings, and exit.
+  Save GUI is a quick and easy way to save the GUI file (more about what this is later). This is an easy way to save the file and will use the 
+nameing scheme setup in the settins. Note: this is what is done automatically if you have save gui setup in the settings.
+  Save as GUI is a way to save the gui and set a new name all in one step. Both save functions can be done any time after the evaluation is complete.
+  Load GUI is how you use these GUI files. It will bring the GUI up to the same state that it was when it was saved. So you can view everything but the
+logs. (how each person did in each round, stack results, even all the stats and main recorded speed times)
+  Load replay will allow you to select multiple replays to evaluate the rounds. Note: if you try to evaulate mutiple replays at once, they should full 
+games, or at the bare minimum end after the round is over. If they do not, the script may error becuase it thinks the game jumped to an invalid state.
   Open Settings is where you get access to most of the variables that can be set to adjust the script. On the first run, the script will 
 create a gamePlay.json. This file will have evertything that can be adjusted. You will have the file directories (the locations to where you
 will save the files) The file names that will auto increment to prevent files from overwriting. Note: the "Error_log" can only be changed in the
@@ -44,10 +51,14 @@ put your IP here. Save_replay is a boolean that controls weather or not the repl
 should be used on the evaluation. Note: multi threading can cause a few hicc ups's if attempting to stop the script in mid run. All execptions that
 I have found will be handled cleanly, but there is a chance there may be a few data points missing. Some of the calculations are very extensive. It 
 is recommonded to use threading on live reads and not use threading on replay reads. Results will very depeding on processing power. For most accuart
-results on slower machines, just save the replay and run the evaluation after the game. "FPS" is the frames per second used to save the replay. The
-default is 30, but can be adjusted for your desire. "Script_delay" is only accessed in the json and adjust how fast the evaluation will run. The
-faster, the more accurate results. "Gui_refresh" is how fast teh gui will refresh. Default is 1 sec. If turned up too high, you will see slower 
-evaluation results. "Retry_delay" is not used. 
+results on slower machines, just save the replay and run the evaluation after the game. "Replay FPS" is the frames per second used to save the replay. The
+default is 30, but can be adjusted for your desire. Save Detailed files are for the csv files from the games. This would include the results from the
+evaluation, the evaluation log, stack log, and speed log. All of these are defaulted to csv files. Save GUI file is the gui state file. it will save a file
+ending in GUI. This file can be loaded and you can see everthing about the game (excpet the log) in the GUI. This is a quick and easy way to review a game
+without rerunning the evaluation. Also, it should be noted this is the only file that doesn't have to be recorded live. Auto Restart will have the GUI 
+automatically start evaluating as soon as you enter a lobby. "Script_delay" is only accessed in the json and adjust how fast the evaluation will run. The
+faster, the more accurate results. "Gui_refresh" is how fast the gui will refresh. Default is 1 sec. If turned up too high, you will see slower 
+evaluation results. "Retry_delay" is how often you will attempt to connect to a new lobby.
   Choosing the correct settings. You want to focus on how fast the script can run. If you don't use threading, some calculations can take up to 3 
 seconds to complete. This is the main reason for multithreading. If you can keep the refresh rate at about 30-50ms, you should have pretty accurate
 results. Faster tends to lead to some artifacts in the data calculations and slower can lead to missed data. Most replays will save at 33ms, so this is
