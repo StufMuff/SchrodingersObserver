@@ -40,7 +40,8 @@ screen because the running LED will be yellow.
 nameing scheme setup in the settins. Note: this is what is done automatically if you have save gui setup in the settings.
   Save as GUI is a way to save the gui and set a new name all in one step. Both save functions can be done any time after the evaluation is complete.
   Load GUI is how you use these GUI files. It will bring the GUI up to the same state that it was when it was saved. So you can view everything but the
-logs. (how each person did in each round, stack results, even all the stats and main recorded speed times)
+logs. (how each person did in each round, stack results, even all the stats and main recorded speed times). You can load multiple gui files and will show 
+how an adverage of how each person did throughout those rounds. So would be great to see how a team preformed on adverage over a span of time.
   Load replay will allow you to select multiple replays to evaluate the rounds. Note: if you try to evaulate mutiple replays at once, they should full 
 games, or at the bare minimum end after the round is over. If they do not, the script may error becuase it thinks the game jumped to an invalid state.
   Open Settings is where you get access to most of the variables that can be set to adjust the script. On the first run, the script will 
