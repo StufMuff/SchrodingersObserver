@@ -108,18 +108,18 @@ these are some things to keep in mind.
   recap. The top row will show the list of each team and their total score in the evaluation. The players will be ranked from highest to lowest. The center of the top 
   row will show a score breakdown. The current round on top and subsequential rounds are shown below. The script can show up to 8 rounds before it stops showing.
   Lastely, the bottom shows all the stats the API has to offer. A lot are always zero, but may be used later on. The breakdown is shown below:
-      points        PT
-      assists       AST
-      goals         GOL
-      shots taken   STK
-      saves         SAV
-      stuns         STN
-      blocks        BLK
-      passes        PAS
-      catches       CAT
-      interceptions INT
-      steals        STL
-      poss          POS
+      points->PT,
+      assists->AST,
+      goals->GOL,
+      shots taken->STK,
+      saves->SAV,
+      stuns->STN,
+      blocks->BLK
+      passes->PAS,
+      catches->CAT,
+      interceptions->INT,
+      steals->STL,
+      poss->POS
   Error tab:
     So a prompt to let the user know if anything went wrong or a place to see what happened in the script. If any imporant information is to be seen, the error LED
   will be on.
