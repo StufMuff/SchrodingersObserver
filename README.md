@@ -140,14 +140,14 @@ but is easily simulated by using excel. (May push out to -2 to 2 if calculations
   Current Version has not way to decide if the player took a shot. I am currently using the API shot recognition. (In later releases, I plan to develop a more
 accurate shot detection) When the API decided the player took a shot, I evaluate what happens after that.
     -1: 
-      shot is missed and team loses possession
+      shot is missed and team loses possession.
     -0.5: 
-      shot is missed but team gets the rebound
+      shot is missed but team gets the rebound.
     +0.5: 
-      shot made on a goalie (not in a pocket)
-      shot made off the goalies head
+      shot made on a goalie (not in a pocket),
+      shot made off the goalies head.
     +0.5: 
-      to the person who assisted the goal
+      to the person who assisted the goal.
     +1: 
       shot made on an open net or on a guarded net and in a pocket.
     *Note: a players "shot_rating" is saved, and recoreded but currently has no effect. Will have later version increase the punishment if the rating goes
@@ -156,110 +156,110 @@ accurate shot detection) When the API decided the player took a shot, I evaluate
   Attempting to grade each players action on offence as either helping or not for the possession of the disc. Each player will have a possession rating and this
 rating has to be over 70% to be considered an open pass option. (you gain 10% for every good action, up to 100% and loose 10% for every bad action, down to 0%)
   -1:
-    Loosing disc with pass options
-    Clearing disc with no pressure and having possession less than 1 sec
-    Lost the disc and threw the disc slower than 16 m/s
-    Pass to a guarded Man
-    Failed to catch the disc
-    Bad pass (a pass that takes 3 bounces before getting to a target or taking longer then 3 seconds to get to the target)
-    Self Goal
+    Loosing disc with pass options,
+    Clearing disc with no pressure and having possession less than 1 sec,
+    Lost the disc and threw the disc slower than 16 m/s,
+    Pass to a guarded Man,
+    Failed to catch the disc,
+    Bad pass (a pass that takes 3 bounces before getting to a target or taking longer then 3 seconds to get to the target),
+    Self Goal.
   -0.5:
-    Failed to catch an intended pass (if a player dimes a pass and you don't get it)
-    Failed to get in a passing lane (only after change time is up, and happens every pass. Also, doesn't count if you are guarded)
+    Failed to catch an intended pass (if a player dimes a pass and you don't get it),
+    Failed to get in a passing lane (only after change time is up, and happens every pass. Also, doesn't count if you are guarded).
   +0.5:
-    Good pass (grade of 2 -> with in 1.5 meters of players head. At there velocity when the disc is released)
-    Open for a pass (any time the disc is released)
+    Good pass (grade of 2 -> with in 1.5 meters of players head. At there velocity when the disc is released),
+    Open for a pass (any time the disc is released),
     Pass completed to a guarded man (to make the total points for this action -0.5. Goal will be to punish the person who gave the player the disc if it is lost
-        rather than the player who lost the disc)
+        rather than the player who lost the disc).
   +1:
-    Diming a pass (grade = 1 -> less than one meter from players head at their current velocity when the disc is released)
-    Gained possession of the disc
-    Rebounded shot
-    Received a pass
+    Diming a pass (grade = 1 -> less than one meter from players head at their current velocity when the disc is released),
+    Gained possession of the disc,
+    Rebounded shot,
+    Received a pass.
 # Poss Time:
   API counts possession time from the moment you touch the disc until it is touched by another player. I only count it when you have "control" of the disc. For
 example, when you have the disc in your hand or are floating next to the disc at a speed < 5 and within arm reach.
 # Man Coverage:   
   Shows how well each person is doing on defense. Goalie is scored in goalie section. Tight coverage is inside 2 meters and light is inside 4 meters
   -1: 
-    Player's mark scores the disc
+    Player's mark scores the disc.
   -0.5: 
-    Player was not covering a man on the pass (not durning change time)
-    Player was covering the man on the pass but was not near the man when he got the disc
+    Player was not covering a man on the pass (not durning change time),
+    Player was covering the man on the pass but was not near the man when he got the disc.
   +0.5: 
-    Player had loose man coverage
+    Player had loose man coverage.
   +1: 
-    Player had tight man coverage
+    Player had tight man coverage.
 # Lane Coverage:
   Points are given to this catagory if a player is blocking a passing lane between the disc and the player. Note: if multiple people are blocking the same lane
 the points will go to the person closest to the receiving player. No negative points are tracked.
-  +1: Player was blocking a lane
+  +1: Player was blocking a lane.
 # Change Time:
   This section grades how well a team transitions to offense/defense. The default time is set to 5 seconds. This means the players are expected to return to the
 side of the disc within 5 seconds of the disc changing sides. This area is stil being tweaked because there are a lot of variables that would go into play. Defense
 in echo is a numbers game. Therefore if you play 4v4 vs 3v3 in the bubble, the offense actually has a better advantage. However, if there is a number favoring one
 side, that side is in favor (3v4) The points are layed out below:
   -1:
-    Player did not recover to offense/defense in time
+    Player did not recover to offense/defense in time.
   -0.5:
-    Player was stacked and did not recover to offense/defense in time
-    Defensive player was only stuck stranded with one offensive player
-    Player was next to a teammate who was stunning stacks
+    Player was stacked and did not recover to offense/defense in time,
+    Defensive player was only stuck stranded with one offensive player,
+    Player was next to a teammate who was stunning stacks.
   +0.5:
-    Offensive player was only stuck stranded with one deffensive player
+    Offensive player was only stuck stranded with one deffensive player.
   +1:
-    Player return to offense/defense in time
-    Defensive player was stunning 2 or more offensive players
-    Offensive player was stunning 2 or more defensive players
+    Player return to offense/defense in time,
+    Defensive player was stunning 2 or more offensive players,
+    Offensive player was stunning 2 or more defensive players.
 # Clear:
   This second evaluates how well a player is clearing based on where the disc goes and how well the team is doing on recovering clears. There is a team and 
 individual clear rating that will help decide what choice should be made. Also, the defense zone is only up until same side double diamonds. This is to allow
 for a strategic clear to trap for a recovery to beat out perma goalies and such defenses
   -1:
-    Attempted to clear but the disc stayed in the defensive zone
+    Attempted to clear but the disc stayed in the defensive zone.
   -0.5:
-    Cleared the disc with a team rating under 70% and plwyer was not in danger
+    Cleared the disc with a team rating under 70% and plwyer was not in danger.
   +0.5:
-    Player Cleared the disc with a team rating over 70%
-    Picked up a clear from the other team
+    Player Cleared the disc with a team rating over 70%,
+    Picked up a clear from the other team.
   +1.0:
-    Picked up own teams clear
+    Picked up own teams clear.
 # Stack Control:
   This section tries to grade how well a player stacks with his/her team mates.
   -1:
-    Stack over ran the disc
+    Stack over ran the disc.
   -0.5: 
-    Players are in stacks in bubble defense
+    Players are in stacks in bubble defense.
   -0.25:
-    Players are stack in bubble defense but not in the bubble
+    Players are stack in bubble defense but not in the bubble.
   +0.5:
-    Players turned as a stack
-    Players stopped as a stck
-    Players stacked to give high pressure to the disc
+    Players turned as a stack,
+    Players stopped as a stck,
+    Players stacked to give high pressure to the disc.
   +1:
-    Stack recovered the disc
-    Players were in stack defense
+    Stack recovered the disc,
+    Players were in stack defense.
 # Stuns:
   This section is easy.
   -0.5:
-    getting stunned
+    getting stunned.
   +0.5:
-    stunning an opponent
+    stunning an opponent.
 # Steals:
   +1:
-    Player stole the disc (tracked by API)
+    Player stole the disc (tracked by API).
 # Goalie:
-  This section is to show how well the player is playing Goalie
+  This section is to show how well the player is playing Goalie.
   -1:
     Failed to stop a 3 pointer
-    Failed to stop a shot that took longer than 0.5 seconds to go in (only if player is not stunned)
+    Failed to stop a shot that took longer than 0.5 seconds to go in (only if player is not stunned).
   -0.5:
-    Scored a self goal while trying to save the disc
+    Scored a self goal while trying to save the disc.
   +0.5:
-    Covered the goal durning a pass
+    Covered the goal durning a pass.
   +1: 
-    API awarded a save
-    Gain possession as a goalie
+    API awarded a save,
+    Gain possession as a goalie.
     
 # # # # # Trouble Shooting Tips # # # # #
   There is a "crashLog_gamePlay.log" file that will record most errors. This is a good place to start. Also, inside the schrodingersObserver folder you can find a 
