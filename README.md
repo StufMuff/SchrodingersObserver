@@ -2,19 +2,23 @@
 -Created by Jeremy Stufflebeem (StufMuff)
 
 # # # # # Release # # # # #
-# Release Notes:
+# # Release Notes:
   This release is to highlight the basic idea of what the script is capable of. Not by any means has the information been "perfected"
 The evaluation given is to give players an idea of what areas of the game are weaker. For example, to have one game with "man_coverage"
 may not mean much. But to have 10 games with "man_coverage" being low could indicate that is a players weak point
   The GUI is a simple Tkinter GUI to make using the scripts easier for everyone. A person just has to download the zip file and run the 
 EXE. More info in the setup section
-# Link:
+# update 2/5/22
+  Changed naming format on the files. Now they all match and will lineup to make game review eaiser. Included logic to handle reset being
+hit in a private match. Changed when the files will be wrote so they are all wrote at the same time. Switched to allow GUI to show averages 
+in between rounds. Corrected active player logic. Now player will only be considered active if they enter the tunnel.
+# #Link:
   https://github.com/StufMuff/SchrodingersObserver
   Download branch as a zip folder
     Unzip to any desired loaction
     Run schrodingersObserver_GUI.exe
       ***Note: running unathorized EXE will be flaged and have to be bypassed to run (this should happen the first time only)
-# discord:
+# #discord:
   Schordinger's Disc
   https://discord.gg/2uJyQD3w7X
 # # # # # GUI Notes # # # # #
