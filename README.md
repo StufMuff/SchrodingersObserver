@@ -12,6 +12,8 @@ EXE. More info in the setup section
   Changed naming format on the files. Now they all match and will lineup to make game review eaiser. Included logic to handle reset being
 hit in a private match. Changed when the files will be wrote so they are all wrote at the same time. Switched to allow GUI to show averages 
 in between rounds. Corrected active player logic. Now player will only be considered active if they enter the tunnel.
+# update 3/1/22
+  Quick fix to hold team player names until next round actually start. (Spicifically if game goes into pre-match and never into playing)
 # #Link:
   https://github.com/StufMuff/SchrodingersObserver
   Download branch as a zip folder
