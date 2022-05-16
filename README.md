@@ -1,6 +1,8 @@
 # Schrödinger's Observer 
 -Created by Jeremy Stufflebeem (StufMuff)
 
+![alt text](https://github.com/StufMuff/SchrodingersObserver/blob/main/Images/Observer.png "Example Of GUI")
+
 ## Release Notes:
   This release is to highlight the basic idea of what the script is capable of. Not by any means has the information been "perfected"
 The evaluation given is to give players an idea of what areas of the game are weaker. For example, to have one game with "man_coverage"
