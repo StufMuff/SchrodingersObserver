@@ -33,7 +33,7 @@ portion. However, the other portions have been added for the users pleasure. Eva
 files to be reviewd. Stats are only a shinny add on for a reference of game recap.
 
 ### Getting Started
-  The first things to note are the LED's on the bottom of the GUI. This is to assit the user to understanding what the script is doing.
+  The first things to note are the LED's on the bottom of the GUI. This is to assist the user to understanding what the script is doing.
 There will be times that noting is changing, but the script is still working. The Running LED indicates the current run is still "active"
 The Replay LED is to show the replay is being saved. If there is ever an error, the Alarm LED will turn on and the messages will be 
 displayed in the Error tab. One main feature offered is the ability to evaluate any game off the replay data. For this reason the Replay
