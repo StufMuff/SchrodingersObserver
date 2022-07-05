@@ -17,6 +17,35 @@ EXE. More info in the setup section
 hit in a private match. Changed when the files will be wrote so they are all wrote at the same time. Switched to allow GUI to show averages 
 in between rounds. Corrected active player logic. Now player will only be considered active if they enter the tunnel.
 
+* update 7/4/22
+  1.  Added deep linking ability for PC users
+    *  Can create spark links by using "Spark Features" Menu
+    *  Can use spark link by pasting spark link into "Use Spark" under "Spark Features"
+  1.  Added more stats to compare!
+    *  Catches and passes are tracked (even in private matches)
+    *  Assist is broken into two areas - Assist (in the bubble) and 3pt assist
+    *  Goals are now tracked
+    *  Number of 3pt goals are now tracked
+    *  Shots taken and saves are still off api
+    *  Blocks are now tracked, note: API counts a block as a stun, we do not. But a block still goes toward your stun evaluation
+    *  Possession time in state menu has been switched over to our possession
+  1.  Added two streaming features
+    *  New API interface. Can now access evaluation info and stats like an API!
+    *  Alternativily, can save a live updated json to a file
+  1.  Database Interface
+    *  Now all the stats can be stored in a mysql database.
+    *  Note: players will be added as they play, but team connections have to be made manually. 
+    *  - User interface to update teams could be added per feature request in discord
+  1.  New more accurate Replay Saving process
+    *  Added replay process to another exe (replay_api.exe). Opens replay saving in another window
+    *  Window will minimize right away.
+    *  Added API controls to start and set replay information
+    *  Do NOT close the window by hitting the "x". This will leave an unzipped replay file in the main folder
+  1.  Corrected a bug on poss time recording that started mid game
+  1.  Found a glitch when using auto connect. 
+    *  After the first game the GUI takes a minute to actually show information on screen
+    *  API and script are still functioning at full speed
+    
 ## Link:
   * [Link to the github](https://github.com/StufMuff/SchrodingersObserver)
     
@@ -33,7 +62,7 @@ portion. However, the other portions have been added for the users pleasure. Eva
 files to be reviewd. Stats are only a shinny add on for a reference of game recap.
 
 ### Getting Started
-  The first things to note are the LED's on the bottom of the GUI. This is to assit the user to understanding what the script is doing.
+  The first things to note are the LED's on the bottom of the GUI. This is to assist the user to understanding what the script is doing.
 There will be times that noting is changing, but the script is still working. The Running LED indicates the current run is still "active"
 The Replay LED is to show the replay is being saved. If there is ever an error, the Alarm LED will turn on and the messages will be 
 displayed in the Error tab. One main feature offered is the ability to evaluate any game off the replay data. For this reason the Replay
@@ -51,22 +80,22 @@ screen because the running LED will be yellow.
 ### Menu
   The menu selection has six options: Save GUI, Save as GUI, load GUI, load replay, open settings, and exit.
   
-### Save GUI
+#### Save GUI
   Save GUI is a quick and easy way to save the GUI file (more about what this is later). This is an easy way to save the file and will use the 
 nameing scheme setup in the settins. Note: this is what is done automatically if you have save gui setup in the settings.
 
   Save as GUI is a way to save the gui and set a new name all in one step. Both save functions can be done any time after the evaluation is complete.
   
-### Load GUI
+#### Load GUI
   Load GUI is how you use these GUI files. It will bring the GUI up to the same state that it was when it was saved. So you can view everything but the
 logs. (how each person did in each round, stack results, even all the stats and main recorded speed times). You can load multiple gui files and will show 
 an adverage of how each person did throughout those rounds. So would be great to see how a team preformed on adverage over a span of time.
 
-### Load Replay
+#### Load Replay
   Load replay will allow you to select multiple replays to evaluate the rounds. Note: if you try to evaulate mutiple replays at once, they should full 
 games, or at the bare minimum end after the round is over. If they do not, the script may error becuase it thinks the game jumped to an invalid state.
 
-### Settings
+#### Settings
   Open Settings is where you get access to most of the variables that can be set to adjust the script. On the first run, the script will 
 create a gamePlay.json. This file will have evertything that can be adjusted. You will have the file directories (the locations to where you
 will save the files) The file names that will auto increment to prevent files from overwriting. 
@@ -171,6 +200,76 @@ Lastely, the bottom shows all the stats the API has to offer. A lot are always z
   So a prompt to let the user know if anything went wrong or a place to see what happened in the script. If any imporant information is to be seen, the error LED
 will be on.
 
+## Streaming
+  To use the evaluation information on external programming, there are two options available. By going to the settings at navigating to the streaming tab. Here you can turn streaming on to activate the process. The second option is to use API. By turning this true, you are giving the option to setup the port to access the API.
+If API is turned off, you are given a field to input the directory to save the json information and the name to save the file. Both options will give the same information. Example of the infromation is given in api_json.
+
+  Some helpful tips:
+  *  Most of the "useful" information from the echo API is given
+  *  blue_joust and orange_joust will turn true for about 3 seconds when the team crosses the center on nuetral joust or when a team gets an "insane defensive joust"
+  *  disc.live tells when the game is actually in play
+  *  disc.wait is used to count bounces
+  *  disc.bounce actually works 
+  *  disc.held is used to show if a person has the disc
+  *  disc.by_team and disc.near_to are used to find if the player is near a person (gives players index)
+  *  poss shows whish team has possession (a true possession, not just who last touched the disc)
+  *  team is an array of team information (index 0 is blue and 1 is orange)
+    *  team[X].stats is api team stats
+    *  team[X].roundScore is an array to show the score at the end of each round
+    *  team[X].team is the team name given through the API
+    *  team[X].joust_time is normally 0 but is turned to the true value of the joust when the appropriate teams joust found is true
+    *  team[X].joust_speed...same as joust time but for speed information
+    *  team[X].clear_rating is the current clearing rating the evalutation has for each team. (scale to 0 to 1)
+    *  team[X].players is an array of players for each team (note: this infrmation is duplicated in player_info)
+      *  Check player_info for players stat breakdown
+    *  player_info is an array of all the players that have played in the game
+      *  player_info[X].name is the players name
+      *  player_info[X].team gives team index (0 for blue and 1 for orange)
+      *  player_info[X].speed_data is an array for speed information
+        *  in each array you have joust name. This is the joust that this item is talking about (starting at joust_0) If a player has no information on a joust, there will be no item for that joust
+        *  you will have velocity for exit, disc, and center. If the value is 0 than the person had no information for that field on this joust
+        *  you will also have time for exit, disc, and center. Same rule as above apply
+      *  player_info[X].stats this is a presistant version of the API stats
+      *  player_info[X].poss turns true when this player is holding the disc
+      *  player_info[X].fantasy_stats are the new stats recorded by the bot
+      *  player_info[X].grade_data is the live evaluation information. at the end of the round this info is appended to rounds
+      *  player_info[X].rounds is the same as grade_data but also includes round number, team that player was on and total
+      *  player_info[X].rating_data is the players rating in shots and possession the bot has given this player (range from 0 to 1)
+      *  player_info[X].stack_info is an array to show all the stacking information for the player
+        *  name is the player the person stacked with
+        *  count is the number of times the player stacked with this person
+        *  time is the time they were stacked together
+        
+## Replay Information
+  Now replay recording has been moved over to an exe file. This allows the use of multiprocessing on the computers. This is to make replay recording the highest priority in the observer process. This is because the evaluation can be reran and debugged using the replay data. This is a fully functional application without a GUI interface.
+The exe can be launched with the following parameters.
+  * -p, --port, -> Port to run API on... Default is 7770
+  * -d, --directory, -> Directory of file, empty if in same directory
+  * -f, --file, -> Name of base file... Default is replay
+  * -t, --time, -> Date and time to put on the file
+  * -s, --fps, -> Frames Per Second... Default is 30
+  * -i, --index, -> file index number
+  * -a, --address, -> IP of API
+  
+  using no ending on the API (127.0.0.1/) will return "This is running" if the script is running and "This is not running" if it has stopped
+  *  This is pretty meaningless because the application closes after it is complete
+  using /run/ will enable a way to stop the replay cleaningly (127.0.0.1/run/running=False)
+  *  Putting anytihng other than "False" will not stop the relay
+  using /end/ will allow the file to be broken into a new round (127.0.0.1/end/stop=True)
+  *  Putting anything other than "True" will not stop the round but will return round already ended
+  *  If True is sent after the replay has auto ended the round, round already ended will also be returned
+  
+## Deep linking
+  Now Schrodinger's Observer has deep linking ability. When you enter a private match, the lobby ID will be added to lobby 1. By clicking Lobby1 after closing the game, you can rejoin said lobby. (You can also post a valid sessionID into the field and hit lobby1 to enter that valid lobby)
+When you enter another private match without closing the observer, lobby1 ID will move to lobby2 ID and the new lobby will be placed into lobby 1. This will allow you to exit the game and rejoin the lobby you were in before joining the current private match by clicking lobby2 button. Lastly, 
+you can spectate private matches using Spectator and can pull a specific server by using Select Region.
+  * Note: Deep Linking only works for PC users.
+  
+## Spark Links
+  Seeing popularity of spark links, we have encoded a way to use those too! A spark link is just spark:// attached to the front of the session id. Therefore, you can either copy everything after the "//" and paste it into the lobby 1 field. However, you can also paste the entire link into the
+  menu item "Spark Features" -> "Use Spark". To create the link, you can just add spark:// to the start of the session ID or just click the menu item "Spark Features" -> "Create Spark".
+  * Note: Using spark link only works on PC
+  
 ## SETUP
 ### EXE setup
   This is the easiest. Just download the zip, unzip to any location, find the schrodingersObserver_GUI.exe and run it. Done. 
