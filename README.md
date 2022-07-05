@@ -1,7 +1,7 @@
 # Schrödinger's Observer 
 -Created by Jeremy Stufflebeem (StufMuff)
 
-![alt text](https://github.com/StufMuff/SchrodingersObserver/blob/main/Images/Observer.png "Example Of GUI")
+![alt text](https://github.com/StufMuff/SchrodingersObserver/blob/main/Images/Observer_V100.png "Example Of GUI")
 
 ## Release Notes:
   This release is to highlight the basic idea of what the script is capable of. Not by any means has the information been "perfected"
