@@ -18,6 +18,7 @@ hit in a private match. Changed when the files will be wrote so they are all wro
 in between rounds. Corrected active player logic. Now player will only be considered active if they enter the tunnel.
 
 * update 7/4/22
+  1.  Added version under menu
   1.  Added deep linking ability for PC users
     *  Can create spark links by using "Spark Features" Menu
     *  Can use spark link by pasting spark link into "Use Spark" under "Spark Features"
