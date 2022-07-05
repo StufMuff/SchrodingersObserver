@@ -18,34 +18,34 @@ hit in a private match. Changed when the files will be wrote so they are all wro
 in between rounds. Corrected active player logic. Now player will only be considered active if they enter the tunnel.
 
 * update 7/4/22
-  1.  Added version under menu
-  1.  Added deep linking ability for PC users
-    *  Can create spark links by using "Spark Features" Menu
-    *  Can use spark link by pasting spark link into "Use Spark" under "Spark Features"
-  1.  Added more stats to compare!
-    *  Catches and passes are tracked (even in private matches)
-    *  Assist is broken into two areas - Assist (in the bubble) and 3pt assist
-    *  Goals are now tracked
-    *  Number of 3pt goals are now tracked
-    *  Shots taken and saves are still off api
-    *  Blocks are now tracked, note: API counts a block as a stun, we do not. But a block still goes toward your stun evaluation
-    *  Possession time in state menu has been switched over to our possession
-  1.  Added two streaming features
-    *  New API interface. Can now access evaluation info and stats like an API!
-    *  Alternativily, can save a live updated json to a file
-  1.  Database Interface
-    *  Now all the stats can be stored in a mysql database.
-    *  Note: players will be added as they play, but team connections have to be made manually. 
-    *  - User interface to update teams could be added per feature request in discord
-  1.  New more accurate Replay Saving process
-    *  Added replay process to another exe (replay_api.exe). Opens replay saving in another window
-    *  Window will minimize right away.
-    *  Added API controls to start and set replay information
-    *  Do NOT close the window by hitting the "x". This will leave an unzipped replay file in the main folder
-  1.  Corrected a bug on poss time recording that started mid game
-  1.  Found a glitch when using auto connect. 
-    *  After the first game the GUI takes a minute to actually show information on screen
-    *  API and script are still functioning at full speed
+  - Added version under menu
+  - Added deep linking ability for PC users
+    - Can create spark links by using "Spark Features" Menu
+    - Can use spark link by pasting spark link into "Use Spark" under "Spark Features"
+  - Added more stats to compare!
+    - Catches and passes are tracked (even in private matches)
+    - Assist is broken into two areas - Assist (in the bubble) and 3pt assist
+    - Goals are now tracked
+    - Number of 3pt goals are now tracked
+    - Shots taken and saves are still off api
+    - Blocks are now tracked, note: API counts a block as a stun, we do not. But a block still goes toward your stun evaluation
+    - Possession time in state menu has been switched over to our possession
+  - Added two streaming features
+    - New API interface. Can now access evaluation info and stats like an API!
+    - Alternativily, can save a live updated json to a file
+  - Database Interface
+    - Now all the stats can be stored in a mysql database.
+    - Note: players will be added as they play, but team connections have to be made manually. 
+      - User interface to update teams could be added per feature request in discord
+  - New more accurate Replay Saving process
+    - Added replay process to another exe (replay_api.exe). Opens replay saving in another window
+    - Window will minimize right away.
+    - Added API controls to start and set replay information
+    - Do NOT close the window by hitting the "x". This will leave an unzipped replay file in the main folder
+  - Corrected a bug on poss time recording that started mid game
+  - Found a glitch when using auto connect. 
+    - After the first game the GUI takes a minute to actually show information on screen
+    - API and script are still functioning at full speed
     
 ## Link:
   * [Link to the github](https://github.com/StufMuff/SchrodingersObserver)
