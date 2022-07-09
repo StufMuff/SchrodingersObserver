@@ -1,0 +1,2080 @@
+{
+  /*
+  Some helpful tips:
+  *  Most of the "useful" information from the echo API is given
+  *  blue_joust and orange_joust will turn true for about 3 seconds when the team crosses the center on nuetral joust or when a team gets an "insane defensive joust"
+  *  disc.live tells when the game is actually in play
+  *  disc.wait is used to count bounces
+  *  disc.bounce actually works 
+  *  disc.held is used to show if a person has the disc
+  *  disc.by_team and disc.near_to are used to find if the player is near a person (gives players index)
+  *  poss shows whish team has possession (a true possession, not just who last touched the disc)
+  *  team is an array of team information (index 0 is blue and 1 is orange)
+    *  team[X].stats is api team stats
+    *  team[X].roundScore is an array to show the score at the end of each round
+    *  team[X].team is the team name given through the API
+    *  team[X].joust_time is normally 0 but is turned to the true value of the joust when the appropriate teams joust found is true
+    *  team[X].joust_speed...same as joust time but for speed information
+    *  team[X].clear_rating is the current clearing rating the evalutation has for each team. (scale to 0 to 1)
+    *  team[X].players is an array of players for each team (note: this infrmation is duplicated in player_info)
+      *  Check player_info for players stat breakdown
+    *  player_info is an array of all the players that have played in the game
+      *  player_info[X].name is the players name
+      *  player_info[X].team gives team index (0 for blue and 1 for orange)
+      *  player_info[X].speed_data is an array for speed information
+        *  in each array you have joust name. This is the joust that this item is talking about (starting at joust_0) If a player has no information on a joust, there will be no item for that joust
+        *  you will have velocity for exit, disc, and center. If the value is 0 than the person had no information for that field on this joust
+        *  you will also have time for exit, disc, and center. Same rule as above apply
+      *  player_info[X].stats this is a presistant version of the API stats
+      *  player_info[X].poss turns true when this player is holding the disc
+      *  player_info[X].fantasy_stats are the new stats recorded by the bot
+      *  player_info[X].grade_data is the live evaluation information. at the end of the round this info is appended to rounds
+      *  player_info[X].rounds is the same as grade_data but also includes round number, team that player was on and total
+      *  player_info[X].rating_data is the players rating in shots and possession the bot has given this player (range from 0 to 1)
+      *  player_info[X].stack_info is an array to show all the stacking information for the player
+        *  name is the player the person stacked with
+        *  count is the number of times the player stacked with this person
+        *  time is the time they were stacked together
+  */
+  "sessionid": "1555C7FB-1334-4757-A5D2-2753F02F4951",
+  "orange_team_restart_request": 0,
+  "blue_team_restart_request": 0,
+  "game_clock_display": "05:00.00",
+  "game_clock": 300,
+  "private_match": false,
+  "tournament_match": false,
+  "last_score": {
+    "disc_speed": 9.0388174,
+    "team": "orange",
+    "goal_type": "BOUNCE SHOT",
+    "point_amount": 2,
+    "distance_thrown": 6.3557096,
+    "person_scored": "PLAY3R_X",
+    "assist_scored": "wet_potato"
+  },
+  "orange_score": 9,
+  "blue_score": 5,
+  "game_state": "round_over",
+  "blue_joust": true,
+  "orange_joust": false,
+  "disc": {
+    "live": false,
+    "wait": false,
+    "position": [
+      -13.934001,
+      -4.9500003,
+      21.927002
+    ],
+    "velocity": [
+      8.09,
+      -1.47,
+      0.84
+    ],
+    "pre_velocity": [
+      15.44,
+      0.38,
+      5.56
+    ],
+    "throw_speed": 0,
+    "bounce": 0,
+    "pre_bounce": 0,
+    "held": false,
+    "pre_held": false,
+    "by_team": false,
+    "near_to": -1
+  },
+  "pre_poss": "Orange",
+  "poss": "Orange",
+  "team": [
+    {
+      "stats": {
+        "points": 5,
+        "possession_time": 134.05014,
+        "interceptions": 5,
+        "blocks": 10,
+        "steals": 0,
+        "catches": 13,
+        "passes": 13,
+        "saves": 3,
+        "goals": 2,
+        "stuns": 37,
+        "assists": 1,
+        "shots_taken": 6
+      },
+      "roundScore": [
+        5,
+        5
+      ],
+      "team": "Blue Team",
+      "joust_time": 0,
+      "joust_speed": 0,
+      "clear_rating": 0.7000000000000001,
+      "players": [
+        {
+          "name": "3MUl0R",
+          "userid": 1532773736810069,
+          "number": 69,
+          "level": 22,
+          "team": 0,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 5.12,
+              "time_exit": 1.79,
+              "velocity_disc": 7.91,
+              "time_disc": 3.63,
+              "velocity_center": 7.32,
+              "time_center": 7.33
+            },
+            "joust_1": {
+              "velocity_exit": 20.65,
+              "time_exit": 0.52,
+              "velocity_disc": 19.75,
+              "time_disc": 1.87,
+              "velocity_center": 20.27,
+              "time_center": 2.66
+            },
+            "joust_2": {
+              "velocity_exit": 22.48,
+              "time_exit": 1.23,
+              "velocity_disc": 19.34,
+              "time_disc": 1.84,
+              "velocity_center": 15.92,
+              "time_center": 3.51
+            },
+            "joust_3": {
+              "velocity_exit": 10.48,
+              "time_exit": 0.79,
+              "velocity_disc": 12.64,
+              "time_disc": 1.81,
+              "velocity_center": 11.61,
+              "time_center": 4.13
+            }
+          },
+          "stats": {
+            "possession_time": 36.370438,
+            "points": 3,
+            "saves": 1,
+            "goals": 1,
+            "stuns": 11,
+            "passes": 4,
+            "catches": 4,
+            "steals": 0,
+            "blocks": 2,
+            "interceptions": 3,
+            "assists": 0,
+            "shots_taken": 2,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 0.5000000000000001
+          },
+          "stack_info": {
+            "Bianca_Iset": {
+              "count": 1,
+              "time": 1.1895900000000097
+            },
+            "Palus": {
+              "count": 1,
+              "time": 1.4233090000000033
+            }
+          },
+          "rounds": [
+            {
+              "shot": 0,
+              "possession": 0,
+              "poss_time": 3.6930000000000005,
+              "man_coverage": -1,
+              "lane_coverage": 2,
+              "change_time": 7,
+              "clear": 0,
+              "stack_control": 0,
+              "stuns": 1,
+              "steals": 0,
+              "goalie": 3,
+              "round": 0,
+              "team": "Blue",
+              "total": 15.693000000000001
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 1,
+            "poss_time": 3.6930000000000005,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 2,
+            "saves": 1,
+            "steals": 0,
+            "stuns": 3,
+            "blocks": 3,
+            "STK": 1,
+            "goal_7m": 0,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 93.56050482553822
+        },
+        {
+          "name": "Palus",
+          "userid": 1773579172664460,
+          "number": 77,
+          "level": 50,
+          "team": 0,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 4.97,
+              "time_exit": 1.79,
+              "velocity_disc": 1.73,
+              "time_disc": 3.63,
+              "velocity_center": 11.82,
+              "time_center": 8.23
+            },
+            "joust_1": {
+              "velocity_exit": 17.14,
+              "time_exit": 0.34,
+              "velocity_disc": 4.54,
+              "time_disc": 1.87
+            },
+            "joust_2": {
+              "velocity_exit": 13.2,
+              "time_exit": 1.1,
+              "velocity_disc": 5.21,
+              "time_disc": 2.72
+            },
+            "joust_3": {
+              "velocity_exit": 8.99,
+              "time_exit": 0.66,
+              "velocity_disc": 4.88,
+              "time_disc": 2.08
+            }
+          },
+          "stats": {
+            "possession_time": 45.611053,
+            "points": 2,
+            "saves": 0,
+            "goals": 1,
+            "stuns": 22,
+            "passes": 2,
+            "catches": 7,
+            "steals": 0,
+            "blocks": 6,
+            "interceptions": 0,
+            "assists": 0,
+            "shots_taken": 3,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 0.9
+          },
+          "stack_info": {
+            "Kate.hope": {
+              "count": 2,
+              "time": 4.795710000000014
+            },
+            "3MUl0R": {
+              "count": 1,
+              "time": 1.4233090000000033
+            },
+            "Bianca_Iset": {
+              "count": 2,
+              "time": 3.3180719999999972
+            }
+          },
+          "rounds": [
+            {
+              "shot": 0,
+              "possession": -0.5,
+              "poss_time": 2.555,
+              "man_coverage": 6,
+              "lane_coverage": 3,
+              "change_time": 5.5,
+              "clear": 2,
+              "stack_control": 0,
+              "stuns": 2,
+              "steals": 0,
+              "goalie": 0,
+              "round": 0,
+              "team": "Blue",
+              "total": 20.555
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 1,
+            "poss_time": 2.555,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 0,
+            "saves": 0,
+            "steals": 0,
+            "stuns": 6,
+            "blocks": 8,
+            "STK": 1,
+            "goal_7m": 0,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 31.891610987379398
+        },
+        {
+          "name": "Bianca_Iset",
+          "userid": 3529990830450028,
+          "number": 4,
+          "level": 50,
+          "team": 0,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 5.19,
+              "time_exit": 1.79,
+              "velocity_disc": 3.89,
+              "time_disc": 3.63
+            },
+            "joust_1": {
+              "velocity_exit": 15.16,
+              "time_exit": 0.52,
+              "velocity_disc": 13.42,
+              "time_disc": 1.87,
+              "velocity_center": 10.8,
+              "time_center": 3.78
+            },
+            "joust_2": {
+              "velocity_exit": 22.79,
+              "time_exit": 1.36,
+              "velocity_disc": 21.29,
+              "time_disc": 2.72,
+              "velocity_center": 18.63,
+              "time_center": 3.3
+            },
+            "joust_3": {
+              "velocity_exit": 7.47,
+              "time_exit": 0.79,
+              "velocity_disc": 11.92,
+              "time_disc": 1.95,
+              "velocity_center": 12.07,
+              "time_center": 4.38
+            }
+          },
+          "stats": {
+            "possession_time": 28.792635,
+            "points": 0,
+            "saves": 1,
+            "goals": 0,
+            "stuns": 2,
+            "passes": 4,
+            "catches": 2,
+            "steals": 0,
+            "blocks": 1,
+            "interceptions": 0,
+            "assists": 0,
+            "shots_taken": 1,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 0.8
+          },
+          "stack_info": {
+            "3MUl0R": {
+              "count": 1,
+              "time": 1.1895900000000097
+            },
+            "Kate.hope": {
+              "count": 3,
+              "time": 5.219628000000004
+            },
+            "Palus": {
+              "count": 2,
+              "time": 3.3180719999999972
+            }
+          },
+          "rounds": [
+            {
+              "shot": 0,
+              "possession": 2,
+              "poss_time": 1.8749999999999998,
+              "man_coverage": 2,
+              "lane_coverage": 0,
+              "change_time": 4.5,
+              "clear": 1.5,
+              "stack_control": 0.5,
+              "stuns": -1,
+              "steals": 0,
+              "goalie": 2,
+              "round": 0,
+              "team": "Blue",
+              "total": 13.375
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 1,
+            "poss_time": 1.8749999999999998,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 1,
+            "saves": 1,
+            "steals": 0,
+            "stuns": 1,
+            "blocks": 1,
+            "STK": 1,
+            "goal_7m": 0,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 67.56792873051226
+        },
+        {
+          "name": "Kate.hope",
+          "userid": 3401229240000494,
+          "number": 3,
+          "level": 50,
+          "team": 0,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 4.25,
+              "time_exit": 1.79,
+              "velocity_disc": 4.67,
+              "time_disc": 4.41,
+              "velocity_center": 8.25,
+              "time_center": 9.2
+            },
+            "joust_1": {
+              "velocity_exit": 13.23,
+              "time_exit": 0.4,
+              "velocity_disc": 18.38,
+              "time_disc": 1.87,
+              "velocity_center": 18.2,
+              "time_center": 2.58
+            },
+            "joust_2": {
+              "velocity_exit": 16.19,
+              "time_exit": 1.03,
+              "velocity_disc": 4.91,
+              "time_disc": 1.84
+            },
+            "joust_3": {
+              "velocity_exit": 6.17,
+              "time_exit": 1.74,
+              "velocity_disc": 6.04,
+              "time_disc": 3.54
+            }
+          },
+          "stats": {
+            "possession_time": 23.276024,
+            "points": 0,
+            "saves": 1,
+            "goals": 0,
+            "stuns": 2,
+            "passes": 3,
+            "catches": 0,
+            "steals": 0,
+            "blocks": 1,
+            "interceptions": 2,
+            "assists": 1,
+            "shots_taken": 0,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 1
+          },
+          "stack_info": {
+            "Palus": {
+              "count": 2,
+              "time": 4.795710000000014
+            },
+            "Bianca_Iset": {
+              "count": 3,
+              "time": 5.219628000000004
+            }
+          },
+          "rounds": [
+            {
+              "shot": 0,
+              "possession": 2,
+              "poss_time": 1.112,
+              "man_coverage": 4.5,
+              "lane_coverage": 1,
+              "change_time": 7,
+              "clear": 0.5,
+              "stack_control": 0.5,
+              "stuns": -3,
+              "steals": 0,
+              "goalie": 1.5,
+              "round": 0,
+              "team": "Blue",
+              "total": 15.112000000000002
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 0,
+            "poss_time": 1.112,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 0,
+            "saves": 1,
+            "steals": 0,
+            "stuns": 1,
+            "blocks": 0,
+            "STK": 0,
+            "goal_7m": 0,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 74.80549368968074
+        }
+      ]
+    },
+    {
+      "stats": {
+        "points": 9,
+        "possession_time": 131.90659,
+        "interceptions": 8,
+        "blocks": 0,
+        "steals": 0,
+        "catches": 12,
+        "passes": 12,
+        "saves": 0,
+        "goals": 4,
+        "stuns": 52,
+        "assists": 3,
+        "shots_taken": 9
+      },
+      "roundScore": [
+        9,
+        9
+      ],
+      "team": "Orange Team",
+      "joust_time": 0,
+      "joust_speed": 0,
+      "clear_rating": 1,
+      "players": [
+        {
+          "name": "naoussa",
+          "userid": 4701062603244181,
+          "number": 1,
+          "level": 50,
+          "team": 1,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 4.64,
+              "time_exit": 2.16
+            },
+            "joust_1": {
+              "velocity_exit": 19.55,
+              "time_exit": 0.4,
+              "velocity_center": 19.86,
+              "time_center": 2.41
+            },
+            "joust_2": {
+              "velocity_exit": 16.82,
+              "time_exit": 0.88
+            },
+            "joust_3": {
+              "velocity_exit": 10.27,
+              "time_exit": 1.74
+            }
+          },
+          "stats": {
+            "possession_time": 23.95278,
+            "points": 2,
+            "saves": 0,
+            "goals": 1,
+            "stuns": 6,
+            "passes": 2,
+            "catches": 3,
+            "steals": 0,
+            "blocks": 0,
+            "interceptions": 2,
+            "assists": 1,
+            "shots_taken": 2,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 0.9,
+            "possession": 0.6000000000000001
+          },
+          "stack_info": {
+            "PLAY3R_X": {
+              "count": 3,
+              "time": 3.7931380000000203
+            }
+          },
+          "rounds": [
+            {
+              "shot": 1,
+              "possession": 4,
+              "poss_time": 10.294,
+              "man_coverage": 2.5,
+              "lane_coverage": 0,
+              "change_time": 5,
+              "clear": 2,
+              "stack_control": 0,
+              "stuns": -2.5,
+              "steals": 0,
+              "goalie": 0.5,
+              "round": 0,
+              "team": "Orange",
+              "total": 22.794
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 2,
+            "poss_time": 10.294,
+            "assist_bubble": 1,
+            "assist_3": 0,
+            "pre_assist": 1,
+            "interceptions": 0,
+            "catches": 2,
+            "saves": 0,
+            "steals": 0,
+            "stuns": 1,
+            "blocks": 0,
+            "STK": 2,
+            "goal_7m": 1,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 48.10838901262061
+        },
+        {
+          "name": "NorthShoreRoastBeef",
+          "userid": 3307946805990330,
+          "number": 0,
+          "level": 50,
+          "team": 1,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 5.99,
+              "time_exit": 2.41
+            },
+            "joust_1": {
+              "velocity_exit": 17.56,
+              "time_exit": 0.27,
+              "velocity_center": 16.47,
+              "time_center": 2.66
+            },
+            "joust_2": {
+              "velocity_exit": 16.61,
+              "time_exit": 0.88,
+              "velocity_center": 19.83,
+              "time_center": 2.72
+            },
+            "joust_3": {
+              "velocity_exit": 16,
+              "time_exit": 1.74,
+              "velocity_center": 17.06,
+              "time_center": 3.54
+            }
+          },
+          "stats": {
+            "possession_time": 8.4188976,
+            "points": 0,
+            "saves": 0,
+            "goals": 0,
+            "stuns": 26,
+            "passes": 2,
+            "catches": 1,
+            "steals": 0,
+            "blocks": 0,
+            "interceptions": 1,
+            "assists": 0,
+            "shots_taken": 1,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 0.9,
+            "possession": 1
+          },
+          "stack_info": {
+            "wet_potato": {
+              "count": 2,
+              "time": 3.7366887999999943
+            },
+            "PLAY3R_X": {
+              "count": 2,
+              "time": 2.8790809999999976
+            }
+          },
+          "rounds": [
+            {
+              "shot": -1,
+              "possession": 4.5,
+              "poss_time": 0.939,
+              "man_coverage": 4,
+              "lane_coverage": 1,
+              "change_time": 2.5,
+              "clear": 1,
+              "stack_control": 1,
+              "stuns": 2.5,
+              "steals": 0,
+              "goalie": 0,
+              "round": 0,
+              "team": "Orange",
+              "total": 16.439
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 1,
+            "poss_time": 0.939,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 1,
+            "saves": 0,
+            "steals": 0,
+            "stuns": 13,
+            "blocks": 0,
+            "STK": 1,
+            "goal_7m": 0,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 45.33556050482553
+        },
+        {
+          "name": "PLAY3R_X",
+          "userid": 3463069433709774,
+          "number": 88,
+          "level": 50,
+          "team": 1,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 12.21,
+              "time_exit": 0,
+              "velocity_center": 12.06,
+              "time_center": 3.63
+            },
+            "joust_1": {
+              "velocity_exit": 13.11,
+              "time_exit": 0.12
+            },
+            "joust_2": {
+              "velocity_exit": 17.47,
+              "time_exit": 0.88,
+              "velocity_center": 19.38,
+              "time_center": 2.72
+            },
+            "joust_3": {
+              "velocity_exit": 11.26,
+              "time_exit": 0.86,
+              "velocity_center": 11.45,
+              "time_center": 4.23
+            }
+          },
+          "stats": {
+            "possession_time": 31.728687,
+            "points": 2,
+            "saves": 0,
+            "goals": 1,
+            "stuns": 7,
+            "passes": 3,
+            "catches": 4,
+            "steals": 0,
+            "blocks": 0,
+            "interceptions": 0,
+            "assists": 0,
+            "shots_taken": 3,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 1
+          },
+          "stack_info": {
+            "wet_potato": {
+              "count": 3,
+              "time": 4.022756999999999
+            },
+            "naoussa": {
+              "count": 3,
+              "time": 3.7931380000000203
+            },
+            "NorthShoreRoastBeef": {
+              "count": 2,
+              "time": 2.8790809999999976
+            }
+          },
+          "rounds": [
+            {
+              "shot": -0.5,
+              "possession": 1.5,
+              "poss_time": 3.601,
+              "man_coverage": 3,
+              "lane_coverage": 0,
+              "change_time": 5,
+              "clear": 1,
+              "stack_control": 2,
+              "stuns": -2,
+              "steals": 0,
+              "goalie": 0.5,
+              "round": 0,
+              "team": "Orange",
+              "total": 14.100999999999999
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 2,
+            "poss_time": 3.601,
+            "assist_bubble": 0,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 2,
+            "saves": 0,
+            "steals": 0,
+            "stuns": 1,
+            "blocks": 2,
+            "STK": 3,
+            "goal_7m": 1,
+            "goal_20m": 0,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 38.43429844097994
+        },
+        {
+          "name": "wet_potato",
+          "userid": 3918413828183412,
+          "number": 69,
+          "level": 50,
+          "team": 1,
+          "speed_data": {
+            "joust_0": {
+              "velocity_exit": 4.66,
+              "time_exit": 1.79
+            },
+            "joust_1": {
+              "velocity_exit": 15.61,
+              "time_exit": 0.2
+            },
+            "joust_2": {
+              "velocity_exit": 15.85,
+              "time_exit": 0.88,
+              "velocity_center": 16.37,
+              "time_center": 2.72
+            },
+            "joust_3": {
+              "velocity_exit": 16.53,
+              "time_exit": 1.74,
+              "velocity_center": 1.09,
+              "time_center": 7.31
+            }
+          },
+          "stats": {
+            "possession_time": 67.806221,
+            "points": 5,
+            "saves": 0,
+            "goals": 2,
+            "stuns": 13,
+            "passes": 5,
+            "catches": 4,
+            "steals": 0,
+            "blocks": 0,
+            "interceptions": 5,
+            "assists": 2,
+            "shots_taken": 3,
+            "dropped_data": {
+              "possession_time": 0,
+              "points": 0,
+              "saves": 0,
+              "goals": 0,
+              "stuns": 0,
+              "passes": 0,
+              "catches": 0,
+              "steals": 0,
+              "blocks": 0,
+              "interceptions": 0,
+              "assists": 0,
+              "shots_taken": 0
+            }
+          },
+          "grade_data": {},
+          "rating_data": {
+            "shot": 1,
+            "possession": 0.8
+          },
+          "stack_info": {
+            "PLAY3R_X": {
+              "count": 3,
+              "time": 4.022756999999999
+            },
+            "NorthShoreRoastBeef": {
+              "count": 2,
+              "time": 2.9206884999999945
+            }
+          },
+          "rounds": [
+            {
+              "shot": 1.5,
+              "possession": 6.5,
+              "poss_time": 15.373000000000001,
+              "man_coverage": 6.5,
+              "lane_coverage": 0,
+              "change_time": 4.5,
+              "clear": 4.5,
+              "stack_control": 1,
+              "stuns": 2,
+              "steals": 0,
+              "goalie": 0,
+              "round": 0,
+              "team": "Orange",
+              "total": 41.873000000000005
+            }
+          ],
+          "poss": false,
+          "fantasy_stats": {
+            "passes": 4,
+            "poss_time": 15.373000000000001,
+            "assist_bubble": 2,
+            "assist_3": 0,
+            "pre_assist": 0,
+            "interceptions": 0,
+            "catches": 4,
+            "saves": 0,
+            "steals": 0,
+            "stuns": 3,
+            "blocks": 5,
+            "STK": 3,
+            "goal_7m": 1,
+            "goal_20m": 1,
+            "goal_40m": 0,
+            "goal_40up": 0
+          },
+          "active": true,
+          "ping": 65.18708240534536
+        }
+      ]
+    }
+  ],
+  "player_info": [
+    {
+      "name": "3MUl0R",
+      "team": 0,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 5.12,
+          "time_exit": 1.79,
+          "velocity_disc": 7.91,
+          "time_disc": 3.63,
+          "velocity_center": 7.32,
+          "time_center": 7.33
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 20.65,
+          "time_exit": 0.52,
+          "velocity_disc": 19.75,
+          "time_disc": 1.87,
+          "velocity_center": 20.27,
+          "time_center": 2.66
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 22.48,
+          "time_exit": 1.23,
+          "velocity_disc": 19.34,
+          "time_disc": 1.84,
+          "velocity_center": 15.92,
+          "time_center": 3.51
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 10.48,
+          "time_exit": 0.79,
+          "velocity_disc": 12.64,
+          "time_disc": 1.81,
+          "velocity_center": 11.61,
+          "time_center": 4.13
+        }
+      ],
+      "stats": {
+        "possession_time": 36.370438,
+        "points": 3,
+        "saves": 1,
+        "goals": 1,
+        "stuns": 11,
+        "passes": 4,
+        "catches": 4,
+        "steals": 0,
+        "blocks": 2,
+        "interceptions": 3,
+        "assists": 0,
+        "shots_taken": 2,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 0.5000000000000001
+      },
+      "stack_info": [
+        {
+          "name": "Bianca_Iset",
+          "count": 1,
+          "time": 1.1895900000000097
+        },
+        {
+          "name": "Palus",
+          "count": 1,
+          "time": 1.4233090000000033
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 0,
+          "possession": 0,
+          "poss_time": 3.6930000000000005,
+          "man_coverage": -1,
+          "lane_coverage": 2,
+          "change_time": 7,
+          "clear": 0,
+          "stack_control": 0,
+          "stuns": 1,
+          "steals": 0,
+          "goalie": 3,
+          "round": 0,
+          "team": "Blue",
+          "total": 15.693000000000001
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "Palus",
+      "team": 0,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 4.97,
+          "time_exit": 1.79,
+          "velocity_disc": 1.73,
+          "time_disc": 3.63,
+          "velocity_center": 11.82,
+          "time_center": 8.23
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 17.14,
+          "time_exit": 0.34,
+          "velocity_disc": 4.54,
+          "time_disc": 1.87,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 13.2,
+          "time_exit": 1.1,
+          "velocity_disc": 5.21,
+          "time_disc": 2.72,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 8.99,
+          "time_exit": 0.66,
+          "velocity_disc": 4.88,
+          "time_disc": 2.08,
+          "velocity_center": 0,
+          "time_center": 0
+        }
+      ],
+      "stats": {
+        "possession_time": 45.611053,
+        "points": 2,
+        "saves": 0,
+        "goals": 1,
+        "stuns": 22,
+        "passes": 2,
+        "catches": 7,
+        "steals": 0,
+        "blocks": 6,
+        "interceptions": 0,
+        "assists": 0,
+        "shots_taken": 3,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 0.9
+      },
+      "stack_info": [
+        {
+          "name": "Kate.hope",
+          "count": 2,
+          "time": 4.795710000000014
+        },
+        {
+          "name": "3MUl0R",
+          "count": 1,
+          "time": 1.4233090000000033
+        },
+        {
+          "name": "Bianca_Iset",
+          "count": 2,
+          "time": 3.3180719999999972
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 0,
+          "possession": -0.5,
+          "poss_time": 2.555,
+          "man_coverage": 6,
+          "lane_coverage": 3,
+          "change_time": 5.5,
+          "clear": 2,
+          "stack_control": 0,
+          "stuns": 2,
+          "steals": 0,
+          "goalie": 0,
+          "round": 0,
+          "team": "Blue",
+          "total": 20.555
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "Bianca_Iset",
+      "team": 0,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 5.19,
+          "time_exit": 1.79,
+          "velocity_disc": 3.89,
+          "time_disc": 3.63,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 15.16,
+          "time_exit": 0.52,
+          "velocity_disc": 13.42,
+          "time_disc": 1.87,
+          "velocity_center": 10.8,
+          "time_center": 3.78
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 22.79,
+          "time_exit": 1.36,
+          "velocity_disc": 21.29,
+          "time_disc": 2.72,
+          "velocity_center": 18.63,
+          "time_center": 3.3
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 7.47,
+          "time_exit": 0.79,
+          "velocity_disc": 11.92,
+          "time_disc": 1.95,
+          "velocity_center": 12.07,
+          "time_center": 4.38
+        }
+      ],
+      "stats": {
+        "possession_time": 28.792635,
+        "points": 0,
+        "saves": 1,
+        "goals": 0,
+        "stuns": 2,
+        "passes": 4,
+        "catches": 2,
+        "steals": 0,
+        "blocks": 1,
+        "interceptions": 0,
+        "assists": 0,
+        "shots_taken": 1,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 0.8
+      },
+      "stack_info": [
+        {
+          "name": "3MUl0R",
+          "count": 1,
+          "time": 1.1895900000000097
+        },
+        {
+          "name": "Kate.hope",
+          "count": 3,
+          "time": 5.219628000000004
+        },
+        {
+          "name": "Palus",
+          "count": 2,
+          "time": 3.3180719999999972
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 0,
+          "possession": 2,
+          "poss_time": 1.8749999999999998,
+          "man_coverage": 2,
+          "lane_coverage": 0,
+          "change_time": 4.5,
+          "clear": 1.5,
+          "stack_control": 0.5,
+          "stuns": -1,
+          "steals": 0,
+          "goalie": 2,
+          "round": 0,
+          "team": "Blue",
+          "total": 13.375
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "Kate.hope",
+      "team": 0,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 4.25,
+          "time_exit": 1.79,
+          "velocity_disc": 4.67,
+          "time_disc": 4.41,
+          "velocity_center": 8.25,
+          "time_center": 9.2
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 13.23,
+          "time_exit": 0.4,
+          "velocity_disc": 18.38,
+          "time_disc": 1.87,
+          "velocity_center": 18.2,
+          "time_center": 2.58
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 16.19,
+          "time_exit": 1.03,
+          "velocity_disc": 4.91,
+          "time_disc": 1.84,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 6.17,
+          "time_exit": 1.74,
+          "velocity_disc": 6.04,
+          "time_disc": 3.54,
+          "velocity_center": 0,
+          "time_center": 0
+        }
+      ],
+      "stats": {
+        "possession_time": 23.276024,
+        "points": 0,
+        "saves": 1,
+        "goals": 0,
+        "stuns": 2,
+        "passes": 3,
+        "catches": 0,
+        "steals": 0,
+        "blocks": 1,
+        "interceptions": 2,
+        "assists": 1,
+        "shots_taken": 0,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 1
+      },
+      "stack_info": [
+        {
+          "name": "Palus",
+          "count": 2,
+          "time": 4.795710000000014
+        },
+        {
+          "name": "Bianca_Iset",
+          "count": 3,
+          "time": 5.219628000000004
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 0,
+          "possession": 2,
+          "poss_time": 1.112,
+          "man_coverage": 4.5,
+          "lane_coverage": 1,
+          "change_time": 7,
+          "clear": 0.5,
+          "stack_control": 0.5,
+          "stuns": -3,
+          "steals": 0,
+          "goalie": 1.5,
+          "round": 0,
+          "team": "Blue",
+          "total": 15.112000000000002
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "naoussa",
+      "team": 1,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 4.64,
+          "time_exit": 2.16,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 19.55,
+          "time_exit": 0.4,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 19.86,
+          "time_center": 2.41
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 16.82,
+          "time_exit": 0.88,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 10.27,
+          "time_exit": 1.74,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        }
+      ],
+      "stats": {
+        "possession_time": 23.95278,
+        "points": 2,
+        "saves": 0,
+        "goals": 1,
+        "stuns": 6,
+        "passes": 2,
+        "catches": 3,
+        "steals": 0,
+        "blocks": 0,
+        "interceptions": 2,
+        "assists": 1,
+        "shots_taken": 2,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 0.9,
+        "possession": 0.6000000000000001
+      },
+      "stack_info": [
+        {
+          "name": "PLAY3R_X",
+          "count": 3,
+          "time": 3.7931380000000203
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 1,
+          "possession": 4,
+          "poss_time": 10.294,
+          "man_coverage": 2.5,
+          "lane_coverage": 0,
+          "change_time": 5,
+          "clear": 2,
+          "stack_control": 0,
+          "stuns": -2.5,
+          "steals": 0,
+          "goalie": 0.5,
+          "round": 0,
+          "team": "Orange",
+          "total": 22.794
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "NorthShoreRoastBeef",
+      "team": 1,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 5.99,
+          "time_exit": 2.41,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 17.56,
+          "time_exit": 0.27,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 16.47,
+          "time_center": 2.66
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 16.61,
+          "time_exit": 0.88,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 19.83,
+          "time_center": 2.72
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 16,
+          "time_exit": 1.74,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 17.06,
+          "time_center": 3.54
+        }
+      ],
+      "stats": {
+        "possession_time": 8.4188976,
+        "points": 0,
+        "saves": 0,
+        "goals": 0,
+        "stuns": 26,
+        "passes": 2,
+        "catches": 1,
+        "steals": 0,
+        "blocks": 0,
+        "interceptions": 1,
+        "assists": 0,
+        "shots_taken": 1,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 0.9,
+        "possession": 1
+      },
+      "stack_info": [
+        {
+          "name": "wet_potato",
+          "count": 2,
+          "time": 3.7366887999999943
+        },
+        {
+          "name": "PLAY3R_X",
+          "count": 2,
+          "time": 2.8790809999999976
+        }
+      ],
+      "rounds": [
+        {
+          "shot": -1,
+          "possession": 4.5,
+          "poss_time": 0.939,
+          "man_coverage": 4,
+          "lane_coverage": 1,
+          "change_time": 2.5,
+          "clear": 1,
+          "stack_control": 1,
+          "stuns": 2.5,
+          "steals": 0,
+          "goalie": 0,
+          "round": 0,
+          "team": "Orange",
+          "total": 16.439
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "PLAY3R_X",
+      "team": 1,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 12.21,
+          "time_exit": 0,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 12.06,
+          "time_center": 3.63
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 13.11,
+          "time_exit": 0.12,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 17.47,
+          "time_exit": 0.88,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 19.38,
+          "time_center": 2.72
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 11.26,
+          "time_exit": 0.86,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 11.45,
+          "time_center": 4.23
+        }
+      ],
+      "stats": {
+        "possession_time": 31.728687,
+        "points": 2,
+        "saves": 0,
+        "goals": 1,
+        "stuns": 7,
+        "passes": 3,
+        "catches": 4,
+        "steals": 0,
+        "blocks": 0,
+        "interceptions": 0,
+        "assists": 0,
+        "shots_taken": 3,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 1
+      },
+      "stack_info": [
+        {
+          "name": "wet_potato",
+          "count": 3,
+          "time": 4.022756999999999
+        },
+        {
+          "name": "naoussa",
+          "count": 3,
+          "time": 3.7931380000000203
+        },
+        {
+          "name": "NorthShoreRoastBeef",
+          "count": 2,
+          "time": 2.8790809999999976
+        }
+      ],
+      "rounds": [
+        {
+          "shot": -0.5,
+          "possession": 1.5,
+          "poss_time": 3.601,
+          "man_coverage": 3,
+          "lane_coverage": 0,
+          "change_time": 5,
+          "clear": 1,
+          "stack_control": 2,
+          "stuns": -2,
+          "steals": 0,
+          "goalie": 0.5,
+          "round": 0,
+          "team": "Orange",
+          "total": 14.100999999999999
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    },
+    {
+      "name": "wet_potato",
+      "team": 1,
+      "speed_data": [
+        {
+          "joust_number": "joust_0",
+          "velocity_exit": 4.66,
+          "time_exit": 1.79,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_1",
+          "velocity_exit": 15.61,
+          "time_exit": 0.2,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 0,
+          "time_center": 0
+        },
+        {
+          "joust_number": "joust_2",
+          "velocity_exit": 15.85,
+          "time_exit": 0.88,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 16.37,
+          "time_center": 2.72
+        },
+        {
+          "joust_number": "joust_3",
+          "velocity_exit": 16.53,
+          "time_exit": 1.74,
+          "velocity_disc": 0,
+          "time_disc": 0,
+          "velocity_center": 1.09,
+          "time_center": 7.31
+        }
+      ],
+      "stats": {
+        "possession_time": 67.806221,
+        "points": 5,
+        "saves": 0,
+        "goals": 2,
+        "stuns": 13,
+        "passes": 5,
+        "catches": 4,
+        "steals": 0,
+        "blocks": 0,
+        "interceptions": 5,
+        "assists": 2,
+        "shots_taken": 3,
+        "dropped_data": {
+          "possession_time": 0,
+          "points": 0,
+          "saves": 0,
+          "goals": 0,
+          "stuns": 0,
+          "passes": 0,
+          "catches": 0,
+          "steals": 0,
+          "blocks": 0,
+          "interceptions": 0,
+          "assists": 0,
+          "shots_taken": 0
+        }
+      },
+      "grade_data": {},
+      "rating_data": {
+        "shot": 1,
+        "possession": 0.8
+      },
+      "stack_info": [
+        {
+          "name": "PLAY3R_X",
+          "count": 3,
+          "time": 4.022756999999999
+        },
+        {
+          "name": "NorthShoreRoastBeef",
+          "count": 2,
+          "time": 2.9206884999999945
+        }
+      ],
+      "rounds": [
+        {
+          "shot": 1.5,
+          "possession": 6.5,
+          "poss_time": 15.373000000000001,
+          "man_coverage": 6.5,
+          "lane_coverage": 0,
+          "change_time": 4.5,
+          "clear": 4.5,
+          "stack_control": 1,
+          "stuns": 2,
+          "steals": 0,
+          "goalie": 0,
+          "round": 0,
+          "team": "Orange",
+          "total": 41.873000000000005
+        }
+      ],
+      "poss": false,
+      "fantasy_stats": {
+        "passes": 4,
+        "poss_time": 15.373000000000001,
+        "assist_bubble": 2,
+        "assist_3": 0,
+        "pre_assist": 0,
+        "interceptions": 0,
+        "catches": 4,
+        "saves": 0,
+        "steals": 0,
+        "stuns": 3,
+        "blocks": 5,
+        "STK": 3,
+        "goal_7m": 1,
+        "goal_20m": 1,
+        "goal_40m": 0,
+        "goal_40up": 0
+      }
+    }
+  ]
+}

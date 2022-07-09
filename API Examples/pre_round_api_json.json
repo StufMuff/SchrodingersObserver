@@ -1,0 +1,158 @@
+{
+  "sessionid": "66D8E21C-BA61-4F8D-BEAA-8D25D3D34674",
+  "sessionip": "3.89.220.225",
+  "orange_team_restart_request": 0,
+  "blue_team_restart_request": 0,
+  "game_clock_display": "05:00.00",
+  "game_clock": 300,
+  "private_match": false,
+  "tournament_match": false,
+  "last_score": {
+    "disc_speed": 7.8024352e-28,
+    "team": "orange",
+    "goal_type": "[NO GOAL]",
+    "point_amount": 0,
+    "distance_thrown": 0,
+    "person_scored": "[INVALID]",
+    "assist_scored": "[INVALID]"
+  },
+  "orange_score": 0,
+  "blue_score": 0,
+  "game_state": "pre_match",
+  "blue_joust": false,
+  "orange_joust": false,
+  "disc": {
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "forward": [
+      0,
+      0,
+      1
+    ],
+    "left": [
+      1,
+      0,
+      0
+    ],
+    "up": [
+      0,
+      1,
+      0
+    ],
+    "velocity": [
+      0,
+      0,
+      0
+    ],
+    "bounce_count": 0
+  },
+  "pre_poss": false,
+  "poss": false,
+  "team": [
+    {
+      "stats": {
+        "points": 0,
+        "possession_time": 0,
+        "interceptions": 0,
+        "blocks": 0,
+        "steals": 0,
+        "catches": 0,
+        "passes": 0,
+        "saves": 0,
+        "goals": 0,
+        "stuns": 0,
+        "assists": 0,
+        "shots_taken": 0
+      },
+      "players": [
+        {
+          "name": "CoolRhino",
+          "userid": 3843249712386690,
+          "number": 25,
+          "level": 50,
+          "ping": 78
+        },
+        {
+          "name": "Sheeba-",
+          "userid": 3832265063491535,
+          "number": 1,
+          "level": 50,
+          "ping": 108
+        },
+        {
+          "name": "Sniped-_-",
+          "userid": 4805711272805013,
+          "number": 5,
+          "level": 50,
+          "ping": 44
+        },
+        {
+          "name": "KaosCorn-",
+          "userid": 3591846347550771,
+          "number": 7,
+          "level": 50,
+          "ping": 56
+        }
+      ],
+      "roundScore": [],
+      "team": 0,
+      "joust_time": 0,
+      "joust_speed": 0,
+      "clear_rating": 1
+    },
+    {
+      "stats": {
+        "points": 0,
+        "possession_time": 0,
+        "interceptions": 0,
+        "blocks": 0,
+        "steals": 0,
+        "catches": 0,
+        "passes": 0,
+        "saves": 0,
+        "goals": 0,
+        "stuns": 0,
+        "assists": 0,
+        "shots_taken": 0
+      },
+      "players": [
+        {
+          "name": "VENOM-",
+          "userid": 1620534218043955,
+          "number": 29,
+          "level": 50,
+          "ping": 72
+        },
+        {
+          "name": "slnieder",
+          "userid": 4891860240886110,
+          "number": 12,
+          "level": 50,
+          "ping": 258
+        },
+        {
+          "name": "v_i_x_y",
+          "userid": 5696894886990680,
+          "number": 22,
+          "level": 50,
+          "ping": 66
+        },
+        {
+          "name": "Priest-1",
+          "userid": 3663118547072221,
+          "number": 38,
+          "level": 50,
+          "ping": 319
+        }
+      ],
+      "roundScore": [],
+      "team": 1,
+      "joust_time": 0,
+      "joust_speed": 0,
+      "clear_rating": 1
+    }
+  ]
+}
