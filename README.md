@@ -93,7 +93,7 @@ screen because the running LED will be yellow.
   More information on how to load specific files and what each file is for is in the settings section.
   
 ### Menu
-  The menu selection has six options: Save GUI, Save as GUI, load GUI, load replay, open settings, and exit.
+  The menu selection has six options: Save..., Save as..., load GUI, load Replay, open settings, and exit.
   
 ### Save...
 #### GUI
@@ -114,7 +114,7 @@ nameing scheme setup in the settins. Note: this is what is done automatically if
   You can change the location and file name of GUI that you want to save.
 #### Evaluation Log
   You can change the directory that these files are saved. Individual file names are set inside the settings, under File Locations.
-#### SPeed Info
+#### Speed Info
   You can change teh location and file name of the file you want to save.
   
 ### Load GUI
@@ -204,7 +204,7 @@ the limits to beat Kirito and I's best. We have reached the opponents nest in 1.
   This is an extension of the evaluation tab. This gives a quick breakdown of who stacked with who, how many times they stacked together, and how much time they
 spent in the game stacked together
 
-### Brawl Log
+### Brawl Log Tab:
   This is an extension of the evaluation tab. This gives you a break down of all the brawls that have occured in the match and the results of those brawls. Under
 each player will be the opponent they faced. Under this opponent, there are 4 catagories; stun, by, block, by. This is intented to take up less space. 'Stun' is the
 number of times the main player has stunned that opponent. The next 'by' is how many times that opponent has stunned that player. 'Block' is the number of times the 
