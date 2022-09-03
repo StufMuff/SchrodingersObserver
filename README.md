@@ -1,7 +1,7 @@
 # Schrödinger's Observer 
 -Created by Jeremy Stufflebeem (StufMuff)
 
-![alt text](https://github.com/StufMuff/SchrodingersObserver/blob/main/Images/Observer_V100.png "Example Of GUI")
+![alt text](https://github.com/StufMuff/SchrodingersObserver/blob/main/Images/Observer_V102.png "Example Of GUI")
 
 ## Release Notes:
   This release is to highlight the basic idea of what the script is capable of. Not by any means has the information been "perfected"
@@ -47,6 +47,20 @@ in between rounds. Corrected active player logic. Now player will only be consid
     - After the first game the GUI takes a minute to actually show information on screen
     - API and script are still functioning at full speed
     
+* update 9/3/22
+  - Catch when EXE is not set
+  - Added some redundant logic to prevent GUI file from being wrote a 2ed time
+  - Cleaned up closing the zip file
+    - caused some replay files to not be readable
+  - Replay files were not writing Data files if replay didn't see end of match
+  - Evaluator log always said "xx" stunned opponent. now it will say weither it was a stun or a block
+  - Made an adjustment to the block tracking logic. 
+  - Added Brawl info to GUI file
+  - Added Brawl info to API
+  - Added Brawl Stats to GUI
+  - Now you can save all the detailed files even after the game is over
+
+    
 ## Link:
   * [Link to the github](https://github.com/StufMuff/SchrodingersObserver)
     
@@ -81,22 +95,38 @@ screen because the running LED will be yellow.
 ### Menu
   The menu selection has six options: Save GUI, Save as GUI, load GUI, load replay, open settings, and exit.
   
-#### Save GUI
+### Save...
+#### GUI
   Save GUI is a quick and easy way to save the GUI file (more about what this is later). This is an easy way to save the file and will use the 
 nameing scheme setup in the settins. Note: this is what is done automatically if you have save gui setup in the settings.
 
   Save as GUI is a way to save the gui and set a new name all in one step. Both save functions can be done any time after the evaluation is complete.
+#### Evaluation Log
+  Save the evaluation log results (stored inside the evaluation log tab) into a csv file. This is every event the evaluation catches and when.
+#### Evaluation info
+  Save all the evaluation files. This will include the evaluation results (seen in the Evaluation Tab), Stack Log (seen in Stack Log tab), and Brawl Log 
+(seen in Brawl Log Tab). In previous versions, this info would only save if the settings was turned on before the round started.
+#### Speed Info
+  Save a log of all the speed exit times. This can be seen in the text box of the Speed Info Tab.
+
+### Save as...
+#### GUI
+  You can change the location and file name of GUI that you want to save.
+#### Evaluation Log
+  You can change the directory that these files are saved. Individual file names are set inside the settings, under File Locations.
+#### SPeed Info
+  You can change teh location and file name of the file you want to save.
   
-#### Load GUI
+### Load GUI
   Load GUI is how you use these GUI files. It will bring the GUI up to the same state that it was when it was saved. So you can view everything but the
 logs. (how each person did in each round, stack results, even all the stats and main recorded speed times). You can load multiple gui files and will show 
 an adverage of how each person did throughout those rounds. So would be great to see how a team preformed on adverage over a span of time.
 
-#### Load Replay
+### Load Replay
   Load replay will allow you to select multiple replays to evaluate the rounds. Note: if you try to evaulate mutiple replays at once, they should full 
 games, or at the bare minimum end after the round is over. If they do not, the script may error becuase it thinks the game jumped to an invalid state.
 
-#### Settings
+### Settings
   Open Settings is where you get access to most of the variables that can be set to adjust the script. On the first run, the script will 
 create a gamePlay.json. This file will have evertything that can be adjusted. You will have the file directories (the locations to where you
 will save the files) The file names that will auto increment to prevent files from overwriting. 
@@ -174,6 +204,12 @@ the limits to beat Kirito and I's best. We have reached the opponents nest in 1.
   This is an extension of the evaluation tab. This gives a quick breakdown of who stacked with who, how many times they stacked together, and how much time they
 spent in the game stacked together
 
+### Brawl Log
+  This is an extension of the evaluation tab. This gives you a break down of all the brawls that have occured in the match and the results of those brawls. Under
+each player will be the opponent they faced. Under this opponent, there are 4 catagories; stun, by, block, by. This is intented to take up less space. 'Stun' is the
+number of times the main player has stunned that opponent. The next 'by' is how many times that opponent has stunned that player. 'Block' is the number of times the 
+the main player has blocked that opponent. The next 'by' is how many times that opponent has stunned the main player.
+
 ### Evaluation Log Tab:
   This is just a gui view of the contents wrote to the CSV file for the evaluation log. Showing what each action that a player was graded for. *this is a lot
 easier to view in Excel but in the GUI for a quick referance.
@@ -201,7 +237,7 @@ Lastely, the bottom shows all the stats the API has to offer. A lot are always z
   So a prompt to let the user know if anything went wrong or a place to see what happened in the script. If any imporant information is to be seen, the error LED
 will be on.
 
-## Streaming
+### Streaming
   To use the evaluation information on external programming, there are two options available. By going to the settings at navigating to the streaming tab. Here you can turn streaming on to activate the process. The second option is to use API. By turning this true, you are giving the option to setup the port to access the API.
 If API is turned off, you are given a field to input the directory to save the json information and the name to save the file. Both options will give the same information. Example of the infromation is given in api_json.
 
@@ -240,8 +276,13 @@ If API is turned off, you are given a field to input the directory to save the j
         *  name is the player the person stacked with
         *  count is the number of times the player stacked with this person
         *  time is the time they were stacked together
-        
-## Replay Information
+      *  player_info[X].stun_info is an array to show all the brawling information for the player
+        *  name is the player the person brawled with
+        *  stun is the number of times the player stunned this opponent
+        *  stunby is the number of times the player was stunned by this opponent
+        *  block is the number of times the player blocked this opponent
+        *  blockby is the number of times the player was blocked by this opponent
+### Replay Information
   Now replay recording has been moved over to an exe file. This allows the use of multiprocessing on the computers. This is to make replay recording the highest priority in the observer process. This is because the evaluation can be reran and debugged using the replay data. This is a fully functional application without a GUI interface.
 The exe can be launched with the following parameters.
   * -p, --port, -> Port to run API on... Default is 7770
@@ -260,13 +301,13 @@ The exe can be launched with the following parameters.
   *  Putting anything other than "True" will not stop the round but will return round already ended
   *  If True is sent after the replay has auto ended the round, round already ended will also be returned
   
-## Deep linking
+### Deep linking
   Now Schrodinger's Observer has deep linking ability. When you enter a private match, the lobby ID will be added to lobby 1. By clicking Lobby1 after closing the game, you can rejoin said lobby. (You can also post a valid sessionID into the field and hit lobby1 to enter that valid lobby)
 When you enter another private match without closing the observer, lobby1 ID will move to lobby2 ID and the new lobby will be placed into lobby 1. This will allow you to exit the game and rejoin the lobby you were in before joining the current private match by clicking lobby2 button. Lastly, 
 you can spectate private matches using Spectator and can pull a specific server by using Select Region.
   * Note: Deep Linking only works for PC users.
   
-## Spark Links
+### Spark Links
   Seeing popularity of spark links, we have encoded a way to use those too! A spark link is just spark:// attached to the front of the session id. Therefore, you can either copy everything after the "//" and paste it into the lobby 1 field. However, you can also paste the entire link into the
   menu item "Spark Features" -> "Use Spark". To create the link, you can just add spark:// to the start of the session ID or just click the menu item "Spark Features" -> "Create Spark".
   * Note: Using spark link only works on PC
