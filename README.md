@@ -49,6 +49,7 @@ in between rounds. Corrected active player logic. Now player will only be consid
     
 * update 9/3/22
   - Catch when EXE is not set
+  - Now quest can join via spark links!
   - Added some redundant logic to prevent GUI file from being wrote a 2ed time
   - Cleaned up closing the zip file
     - caused some replay files to not be readable
@@ -59,6 +60,7 @@ in between rounds. Corrected active player logic. Now player will only be consid
   - Added Brawl info to API
   - Added Brawl Stats to GUI
   - Now you can save all the detailed files even after the game is over
+  - Replay files no longer save when game is paused
 
     
 ## Link:
