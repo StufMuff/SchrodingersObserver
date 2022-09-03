@@ -117,6 +117,7 @@ if creat_tables:
           goalie_eval float NOT NULL,
           mvp bool NOT NULL,
           location varchar(20) NOT NULL,
+          serverIP varchar(20) NOT NULL,
           stack_count int,
           stack_time float,
           FOREIGN KEY (teamID) REFERENCES teams(ID),
@@ -141,6 +142,7 @@ if creat_tables:
         joust_loss int,
         won bool,
         location varchar(20) NOT NULL,
+        server_IP varchar(20) NOT NULL,
         FOREIGN KEY (teamID) REFERENCES teams(ID),
         CONSTRAINT `single_game_team` UNIQUE (`date`,`teamID`, `side`)
       );
