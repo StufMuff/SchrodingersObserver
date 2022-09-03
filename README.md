@@ -53,7 +53,7 @@ in between rounds. Corrected active player logic. Now player will only be consid
   - Cleaned up closing the zip file
     - caused some replay files to not be readable
   - Replay files were not writing Data files if replay didn't see end of match
-  - Evaluator log always said "xx" stunned opponent. now it will say weither it was a stun or a block
+  - Evaluator log always said "xx" stunned opponent. now it will say wither it was a stun or a block
   - Made an adjustment to the block tracking logic. 
   - Added Brawl info to GUI file
   - Added Brawl info to API
