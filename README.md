@@ -206,7 +206,7 @@ will save the files) The file names that will auto increment to prevent files fr
     - Select Rules (Select from rule presets: Note-must hit load to see values)
     - Load -> load current values to see
     - Update -> Open a new window with this preset loaded
-  - * Update Window
+  - Update Window
     - Selected Rules (Select preset or select NEW... to create a new one)
     - Load will load old preset values
     - Save will save current values to current settings
