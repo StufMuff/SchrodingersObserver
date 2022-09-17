@@ -61,7 +61,13 @@ in between rounds. Corrected active player logic. Now player will only be consid
   - Added Brawl Stats to GUI
   - Now you can save all the detailed files even after the game is over
   - Replay files no longer save when game is paused
+  - Can write rules for private match through api
 
+* update 9/16/22
+  - Error when logging eval info when the player was not in all the rounds
+  - brawl file had an extra column
+  - did not list writing rules in last release as a new feature
+  - Also updated some settings info
     
 ## Link:
   * [Link to the github](https://github.com/StufMuff/SchrodingersObserver)
@@ -161,6 +167,50 @@ will save the files) The file names that will auto increment to prevent files fr
     * Default is 1 sec. 
       * If turned up too high, you will see slower evaluation results. 
   * "Retry_delay" is how often you will attempt to connect to a new lobby.
+  * "streaming" is used to set if streaming is used
+  * "stream_api" is used to know if a json file is being used or the API
+  * "api_port" default port for API
+  * "stream_rate" is how fast the API will update (Cannot be changed in the GUI)
+  * "rules_default" is the values for rules to be set.
+  * "exe_launch" is to save if the GUI will launch the exe or use the in game API
+  
+### Setting Window
+  Most settings can be adjusted through the GUI. 
+  - Live Read
+    - IP: IP to access API (Quest IP or 127.0.0.1)
+    - Replay FPS (how fast the replay file will save, default is 30)
+    - Use Threading (feature to allow multiprocessing)
+    - Save Detailed Files (automatically save all the extra log files)
+    - Save GUI File (automatically save GUI file)
+    - Auto Restart (turn on automatic start)
+  - File Locations
+    - Replay Directory (Directory for saving replay files)
+    - File Directory (Directory to save extra log files and GUI files)
+    - Replay Name (Base for replay file -> `date`_Game`#`_`base`_round_#.echoreplay)
+    - Evaluation Log (Base for Eval log file)
+    - Evaluation Result (Base for Evaluation Result)
+    - Stack Log (Base for Stack Log File)
+    - Speed Report (Base for speed report file)
+    - Brawl File Name (Base for Brawl File)
+    - GUI File Name (Base for GUI File)
+  - Streaming
+    - Start Streaming (Boolean to either save live json or open API port)
+    - Use API (On will open the API port, off will write json file
+  - Database
+    - Save to database (Boolean for turning on Database usage)
+    - Login info
+  - EXE
+    - EXE File (Location of EXE file)
+    - Launch EXE (ON will require the game to launch . OFF will use the game API to launch actions)
+  - Rules
+    - Select Rules (Select from rule presets: Note-must hit load to see values)
+    - Load -> load current values to see
+    - Update -> Open a new window with this preset loaded
+  - * Update Window
+    - Selected Rules (Select preset or select NEW... to create a new one)
+    - Load will load old preset values
+    - Save will save current values to current settings
+    - Delete will delete current preset
 
 ### Choosing the correct settings. 
   You want to focus on how fast the script can run. If you don't use threading, some calculations can take up to 3 
@@ -284,6 +334,7 @@ If API is turned off, you are given a field to input the directory to save the j
         *  stunby is the number of times the player was stunned by this opponent
         *  block is the number of times the player blocked this opponent
         *  blockby is the number of times the player was blocked by this opponent
+
 ### Replay Information
   Now replay recording has been moved over to an exe file. This allows the use of multiprocessing on the computers. This is to make replay recording the highest priority in the observer process. This is because the evaluation can be reran and debugged using the replay data. This is a fully functional application without a GUI interface.
 The exe can be launched with the following parameters.
@@ -307,12 +358,18 @@ The exe can be launched with the following parameters.
   Now Schrodinger's Observer has deep linking ability. When you enter a private match, the lobby ID will be added to lobby 1. By clicking Lobby1 after closing the game, you can rejoin said lobby. (You can also post a valid sessionID into the field and hit lobby1 to enter that valid lobby)
 When you enter another private match without closing the observer, lobby1 ID will move to lobby2 ID and the new lobby will be placed into lobby 1. This will allow you to exit the game and rejoin the lobby you were in before joining the current private match by clicking lobby2 button. Lastly, 
 you can spectate private matches using Spectator and can pull a specific server by using Select Region.
-  * Note: Deep Linking only works for PC users.
+  * Note: Deep Linking now works for both PC and Quest
+  * There is a setting called "Lauch Exe"
+   - PC users have the option to use in game spark joins or old fasion game launching
+   - to select a region or to use spectator stream must be done through launching game
   
 ### Spark Links
   Seeing popularity of spark links, we have encoded a way to use those too! A spark link is just spark:// attached to the front of the session id. Therefore, you can either copy everything after the "//" and paste it into the lobby 1 field. However, you can also paste the entire link into the
   menu item "Spark Features" -> "Use Spark". To create the link, you can just add spark:// to the start of the session ID or just click the menu item "Spark Features" -> "Create Spark".
   * Note: Using spark link only works on PC
+  
+### Set Rules
+  Setting the rules to be set can be found in the settings. However, the rules are not set until you press "SET" under the set rules section.
   
 ## SETUP
 ### EXE setup
